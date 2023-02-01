@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index3.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2><center>ADMIN DETAILS</center></h2>
+<div class="table-responsive">
+                                    <table class="table table-bordered verticle-middle table-responsive-sm">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">name</th>
+
+                                                <th scope="col">email address</th>
+                                                <th scope="col">mobile number</th>
+                                                <th scope="col">image</th>
+                                                <th scope="col">user name</th>
+                                                <th scope="col">password</th>
+                                                <th scope="col"> confirm password</th>
+
+
+
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                      {% for d in data %}
+                      <tr>
+                       <td>{{d.name}}</td>
+                          <td>{{d.email}}</td>
+                          <td>{{d.mob}}</td>
+
+                          <td>  <img src="{{ d.image.url }}" width="50px" height="50px"></td>
+                          <td>{{d.uname}}</td>
+                           <td>{{d.pswd}}</td>
+                          <td>{{d.cpswd}}</td>
+                          <td>
+                              <form action="{% url 'editpage' dataid=d.id %}">
+                                 <button type="submit" class="btn btn-primary">edit</button>
+                              </form>
+                          </td>
+                          <td>
+                              <form action="{% url 'deletedata' dataid=d.id %}">
+                                 <button onclick="alert('deleted sucessfully')" type="submit" class="btn btn-primary">delete</button>
+                              </form>
+                          </td>
+                      </tr>
+                      {% endfor %}
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+</body>
+</html>
+{% endblock %}

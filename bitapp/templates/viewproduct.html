@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index3.html' %}
+{% block content %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2><center>PRODUCT DETAILS</center></h2>
+<div class="table-responsive">
+    <table class="table table-bordered verticle-middle table-responsive-sm">
+    <thead>
+    <tr><th scope="col">category</th>
+      <th scope="col">product name</th>
+        <th scope="col">quantity</th>
+        <th scope="col">price</th>
+      <th scope="col">image</th>
+       <th scope="col">description</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+
+    {% for d in data %}
+    <tr>
+ <td>{{d.category}}</td>
+
+        <td>{{d.pname}}</td>
+        <td>{{d.qua}}</td>
+        <td>{{d.pri}}</td>
+
+
+        <td>  <img src="{{ d.image.url }}" width="50px" height="50px"></td>
+       <td>{{d.desc}}</td>
+        <td>
+            <form action="{% url 'editp' dataid=d.id %}">
+                <button type="submit" class="btn btn-primary">edit</button>
+            </form>
+        </td>
+        <td>
+            <form action="{% url 'deletedatta' dataid=d.id %}">
+                <button onclick="alert('deleted sucesssfully')" type="submit" class="btn btn-primary">delete</button>
+            </form>
+            </td>
+    </tr>
+    {% endfor %}
+
+
+    </tbody>
+    </table>
+</div>
+</body>
+</html>
+{% endblock %}

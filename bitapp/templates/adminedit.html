@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index3.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2><center>EDIT ADMIN</center></h2>
+<form method="post" action="{%  url 'updatedata' dataid=data.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="card">
+                  <div class="card-body">
+
+                    <form class="forms-sample">
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">name:</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" name="name" placeholder="name" value="{{data.name}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address:</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" value="{{data.email}}">
+                      </div>
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">mobile no:</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" name="mob" placeholder="mobile number" value="{{data.mob}}">
+                      </div>
+                         <div class="form-group">
+                              <img src="{{data.image.url}}" style="height:50px;width:50px;">
+                        <label>File upload</label>
+                          <span class="input-group-append">
+                        <input type="file" name="image" placeholder="upload image" value="{{data.image}}">
+                          </span>
+                        </div>
+                         <div class="form-group">
+                        <label for="exampleInputUsername1">username:</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" name="uname" placeholder="username" value="{{data.uname}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="pswd" placeholder="Password" value="{{data.pswd}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Confirm Password</label>
+                        <input type="password" class="form-control" id="exampleInputConfirmPassword1"name="cpswd" placeholder="Password" value="{{data.cpswd}}">
+                      </div>
+
+                      <button type="submit" class="btn btn-primary mr-2">update</button>
+
+                    </form>
+                  </div>
+                </div>
+</form>
+
+
+</body>
+</html>
+{% endblock %}

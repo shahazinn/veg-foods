@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index3.html' %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2><center>ADD PRODUCT</center></h2>
+<form method="post" action="{%  url 'savedata3' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="card">
+                  <div class="card-body">
+
+                    <form class="forms-sample">
+                      <div class="form-group">
+                        <label>category:</label>
+
+                        <select class="form-control" name="cname" >
+                            <option>{{d.category}}</option>
+                           {% for d in data %}
+                            <option>{{d.name}}</option>
+
+                            {% endfor %}
+                        </select>
+
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1"> product name:</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" name="pname" placeholder="product name">
+                      </div>
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">quantity:</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" name="qua" placeholder="quantity">
+                      </div>
+                         <div class="form-group">
+                        <label for="exampleInputEmail1">price:</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" name="price" placeholder="price">
+                      </div>
+                         <div class="form-group">
+                        <label>File upload</label>
+                          <span class="input-group-append">
+                        <input type="file" name="image" placeholder="upload image">
+                          </span>
+                         </div>
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">description:</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" name="desc" placeholder="description">
+                      </div>
+
+
+
+                      <button onclick="alert('added sucessfully')" type="submit" class="btn btn-primary mr-2">Add</button>
+
+                    </form>
+                  </div>
+                </div>
+</form>
+
+
+</body>
+</html>
+{% endblock %}
