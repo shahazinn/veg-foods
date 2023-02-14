@@ -44,7 +44,11 @@
 
                         <td>{{d.message}}</td>
 
-
+<td>
+            <form action="{% url 'deletemess' dataid=d.id %}">
+                <button  onclick="alert('deleted sucessfully')" type="submit" class="btn btn-primary">delete</button>
+            </form>
+            </td>
 
                       </tr>
                     {% endfor %}

@@ -161,3 +161,7 @@ def adminlogout(request):
 def contact(request):
     data = adcontact.objects.all()
     return render(request,"message.html",{'data':data})
+def deletemess(request,dataid):
+    data=adcontact.objects.filter(id=dataid)
+    data.delete()
+    return redirect(contact)

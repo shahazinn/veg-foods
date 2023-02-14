@@ -25,6 +25,7 @@ urlpatterns=[
     path('adminlogin/',views.adminlogin,name="adminlogin"),
     path('adminlogout/',views.adminlogout,name="adminlogout"),
     path('contact/',views.contact,name="contact"),
+    path('deletemess/<int:dataid>/',views.deletemess,name="deletemess")
 
 
 
